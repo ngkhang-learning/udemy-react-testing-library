@@ -1,7 +1,21 @@
+import "./App.css";
+import { useState } from "react";
+
 function App() {
+	const [btnColor, setBtnColor] = useState("red");
+	const newBtnColor = btnColor === "red" ? "blue" : "red";
+
 	return (
 		<div>
-			<h1>I&apos;m gonna learn React Testing Library</h1>
+			<div>
+				<button
+					aria-disabled={false}
+					className={`btn-${btnColor}`}
+					onClick={() => setBtnColor(newBtnColor)}
+				>
+					Change to {newBtnColor}
+				</button>
+			</div>
 		</div>
 	);
 }
