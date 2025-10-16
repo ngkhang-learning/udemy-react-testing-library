@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
+import { kebabCaseToTitleCase } from "./helpers";
 
 describe("Button Flow", () => {
 	// Case 1: Button starts with correct color
@@ -100,5 +101,17 @@ describe("Checkbox control Button", () => {
 		fireEvent.click(checkBoxElement);
 		expect(btnElement).toBeEnabled();
 		expect(btnElement).toHaveClass("btn-blue");
+	});
+});
+
+describe("kebabCaseToTitleCase function", () => {
+	test("Works for no hypens", () => {
+		expect(kebabCaseToTitleCase("red")).toBe("Red");
+	});
+	test("Works for one hyphen", () => {
+		expect(kebabCaseToTitleCase("midnight-blue")).toBe("Midnight Blue");
+	});
+	test("Works for multiple inner hyphens", () => {
+		expect(kebabCaseToTitleCase("medium-violet-red")).toBe("Medium Violet Red");
 	});
 });
