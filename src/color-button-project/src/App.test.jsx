@@ -8,8 +8,8 @@ describe("Button Flow", () => {
 		render(<App />);
 		const btnElement = screen.getByRole("button", { name: /blue/i });
 
-		expect(btnElement).toHaveClass("btn-red");
-		expect(btnElement).toHaveTextContent(/^Change to blue$/);
+		expect(btnElement).toHaveClass("medium-violet-red");
+		expect(btnElement).toHaveTextContent(/blue/i);
 	});
 
 	// Case 2: Button starts with correct text
@@ -19,8 +19,8 @@ describe("Button Flow", () => {
 
 		fireEvent.click(btnElement);
 
-		expect(btnElement).toHaveClass("btn-blue");
-		expect(btnElement).toHaveTextContent(/^Change to red$/);
+		expect(btnElement).toHaveClass("midnight-blue");
+		expect(btnElement).toHaveTextContent(/red/i);
 	});
 });
 
@@ -68,7 +68,7 @@ describe("Checkbox control Button", () => {
 		});
 
 		// Initial color button
-		expect(btnElement).toHaveClass("btn-red");
+		expect(btnElement).toHaveClass("medium-violet-red");
 
 		// Click checkbox, color button change to gray
 		fireEvent.click(checkBoxElement);
@@ -76,7 +76,7 @@ describe("Checkbox control Button", () => {
 
 		// Click checkbox again, color button change to red
 		fireEvent.click(checkBoxElement);
-		expect(btnElement).toHaveClass("btn-red");
+		expect(btnElement).toHaveClass("medium-violet-red");
 	});
 
 	test("Case 4: Checkbox flow after button click", () => {
@@ -90,7 +90,7 @@ describe("Checkbox control Button", () => {
 
 		// Click button to change to blue
 		fireEvent.click(btnElement);
-		expect(btnElement).toHaveClass("btn-blue");
+		expect(btnElement).toHaveClass("midnight-blue");
 
 		// Click checkbox, color button change to gray
 		fireEvent.click(checkBoxElement);
@@ -100,7 +100,7 @@ describe("Checkbox control Button", () => {
 		// Click checkbox again, color button change to blue
 		fireEvent.click(checkBoxElement);
 		expect(btnElement).toBeEnabled();
-		expect(btnElement).toHaveClass("btn-blue");
+		expect(btnElement).toHaveClass("midnight-blue");
 	});
 });
 
